@@ -1,0 +1,12 @@
+.backgroundImage {
+  background: url("../assets/bg.webp") center no-repeat fixed;
+  position: relative;
+}
+.backgroundImage::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 10, 12, 0.575);
+  z-index: 0;
+}
