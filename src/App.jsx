@@ -8,10 +8,10 @@ import Card from "./components/Card";
 
 function App() {
   return (
-    <div className="w-full h-screen bg-center bg-no-repeat bg-cover backgroundImage">
-      <div className="container max-w-[1200px] mx-auto">
+    <div className="w-full min-h-screen bg-center bg-no-repeat bg-cover backgroundImage">
+      <div className="container max-w-[1200px] mx-auto box-border">
         <Navbar />
-        <div className="relative z-10 xl:mt-32 grid place-items-center mt-6 md:grid-cols-2 gap-10">
+        <div className="w-full min-h-screen pt-[100px] xl:pt-0 relative z-10 grid place-items-center md:grid-cols-2 md:gap-10">
           <Card />
           <Mint />
         </div>
