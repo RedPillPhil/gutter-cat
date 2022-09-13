@@ -5,12 +5,18 @@ import "react-toastify/dist/ReactToastify.css";
 import { ethers } from "ethers";
 import { ABI } from "./ABI";
 
+import Loader from "./Loader";
+
 const Mint = ({ account }) => {
+  const [isloading, setIsloading] = useState(false);
   const [number, setNumber] = useState(1);
   const [totalNumber, setTotalNumber] = useState(0.1);
   const [DBcontract, setDBcontract] = useState("");
   const [count, setCount] = useState(0);
 
+  /**
+   * CONTRACT ADDRESS
+   */
   const ContactAddress = "0xb1786d8de19aAc74aC1490F63ecdb3041F8BB5c1";
 
   const Init = async () => {
@@ -34,8 +40,10 @@ const Mint = ({ account }) => {
 
   // CREATE COLLECTION
   async function setCollectibleBulk() {
+    setIsloading(true);
     if (!account) {
-      toast.error("Please connect your Wallet first!");
+      toast.info("Please connect your Wallet first!");
+      setIsloading(false);
       return;
     }
     if (DBcontract) {
@@ -49,8 +57,11 @@ const Mint = ({ account }) => {
 
         getTokenCount();
         toast.success("Successfully Collected!");
+        setIsloading(false);
       } catch (err) {
+        toast.error("There is an error!");
         console.log("Error: ", err);
+        setIsloading(false);
       }
     }
   }
@@ -101,9 +112,10 @@ const Mint = ({ account }) => {
         <button
           onClick={setCollectibleBulk}
           type="button"
-          className="text-white max-w-fit text-sm bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-500 font-medium rounded-lg py-2 px-6 mx-auto"
+          disabled={isloading}
+          className="text-white disabled:opacity-40 max-w-fit text-sm bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-500 font-medium rounded-lg py-2 px-6 mx-auto"
         >
-          MINT PAUSED
+          {isloading ? <Loader /> : "MINT PAUSED"}
         </button>
         <p className="text-sm font-semibold">{count} out of 4000 minted</p>
       </div>
