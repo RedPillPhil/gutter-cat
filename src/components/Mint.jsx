@@ -1,10 +1,67 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Mint = () => {
+import { ethers } from "ethers";
+import { ABI } from "./ABI";
+
+const Mint = ({ account }) => {
   const [number, setNumber] = useState(1);
   const [totalNumber, setTotalNumber] = useState(0.1);
+  const [DBcontract, setDBcontract] = useState("");
+  const [count, setCount] = useState(0);
+
+  const ContactAddress = "0xb1786d8de19aAc74aC1490F63ecdb3041F8BB5c1";
+
+  const Init = async () => {
+    let provider = new ethers.providers.Web3Provider(window.ethereum);
+    let signer = await provider.getSigner();
+    let Contract = new ethers.Contract(ContactAddress, ABI, signer);
+    setDBcontract(Contract);
+  };
+
+  // GET TOTAL COUNT
+  async function getTokenCount() {
+    if (!account) {
+      return;
+    }
+    if (DBcontract && account) {
+      const result = await DBcontract.tokenCounter();
+      setCount(result.toNumber());
+    }
+  }
+  getTokenCount();
+
+  // CREATE COLLECTION
+  async function setCollectibleBulk() {
+    if (!account) {
+      toast.error("Please connect your Wallet first!");
+      return;
+    }
+    if (DBcontract) {
+      try {
+        let Price = totalNumber.toFixed(1);
+
+        console.log(number, Price); // CHECK BEFORE SEND
+
+        const options = { value: ethers.utils.parseEther(Price) };
+        await DBcontract.createCollectibleBulk(number, options);
+
+        getTokenCount();
+        toast.success("Successfully Collected!");
+      } catch (err) {
+        console.log("Error: ", err);
+      }
+    }
+  }
+
+  useEffect(() => {
+    Init();
+  }, []);
+
   return (
     <div className="text-center w-[350px] md:w-[400px] pt-10 xl:pt-0 pb-20 xl:pb-0 text-white">
+      <ToastContainer position="top-center" theme="colored" />
       <h1 className="font-bold text-gray-200 text-2xl mb-4">
         DNA-2 GUTTER JUICE
       </h1>
@@ -42,12 +99,13 @@ const Mint = () => {
           </button>
         </div>
         <button
+          onClick={setCollectibleBulk}
           type="button"
           className="text-white max-w-fit text-sm bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-500 font-medium rounded-lg py-2 px-6 mx-auto"
         >
           MINT PAUSED
         </button>
-        <p className="text-sm font-semibold">0 out of 4000 minted</p>
+        <p className="text-sm font-semibold">{count} out of 4000 minted</p>
       </div>
     </div>
   );

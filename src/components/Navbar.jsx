@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { ethers } from "ethers";
 
-const Navbar = () => {
-  const [account, setAccount] = useState("");
-
+const Navbar = ({ account, setAccount }) => {
   // CONNET WALLET
   const connectWallet = async () => {
     try {
