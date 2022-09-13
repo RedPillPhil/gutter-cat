@@ -1,5 +1,5 @@
 import React from "react";
-import NFT from "../assets/nft.jpg";
+import NFT from "../assets/nft.gif";
 
 const Card = () => {
   return (
