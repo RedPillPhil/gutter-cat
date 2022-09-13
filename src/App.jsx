@@ -1,8 +1,6 @@
 import Navbar from "./components/Navbar";
-import BG from "./assets/bg.webp";
 import "./components/app.css";
 
-import { useState } from "react";
 import Mint from "./components/Mint";
 import Card from "./components/Card";
 
