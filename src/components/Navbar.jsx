@@ -13,6 +13,20 @@ const Navbar = ({ account, setAccount }) => {
     }
   };
 
+  // const disconnectMeta = async () => {
+  //   if (account) {
+  //     const permissions = await ethereum.request({
+  //       method: "wallet_requestPermissions",
+  //       params: [
+  //         {
+  //           eth_accounts: {},
+  //         },
+  //       ],
+  //     });
+  //     console.log("Permissions", permissions);
+  //   }
+  // };
+
   return (
     <div className="w-full max-w-[1200px] xl:mt-4 fixed z-20">
       <div className="flex justify-between p-4">
@@ -29,6 +43,13 @@ const Navbar = ({ account, setAccount }) => {
               account.slice(account.length - 4, account.length)
             : "Connect Wallet"}
         </button>
+        {/* &nbsp;
+        <button
+          className="text-white bg-gradient-to-br from-orange-500 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 py-2 px-4 font-semibold rounded-full disabled:opacity-80"
+          onClick={disconnectMeta}
+        >
+          Disconnect
+        </button> */}
       </div>
     </div>
   );

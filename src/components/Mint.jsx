@@ -10,14 +10,14 @@ import Loader from "./Loader";
 const Mint = ({ account }) => {
   const [isloading, setIsloading] = useState(false);
   const [number, setNumber] = useState(1);
-  const [totalNumber, setTotalNumber] = useState(0.1);
+  let [totalNumber, setTotalNumber] = useState(0.1);
   const [DBcontract, setDBcontract] = useState("");
   const [count, setCount] = useState(0);
 
   /**
    * CONTRACT ADDRESS
    */
-  const ContactAddress = "0xb1786d8de19aAc74aC1490F63ecdb3041F8BB5c1";
+  const ContactAddress = "0x50DE355Dc2339436196f10BE27b780a3649f9122";
 
   const Init = async () => {
     let provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -28,10 +28,7 @@ const Mint = ({ account }) => {
 
   // GET TOTAL COUNT
   async function getTokenCount() {
-    if (!account) {
-      return;
-    }
-    if (DBcontract && account) {
+    if (DBcontract) {
       const result = await DBcontract.tokenCounter();
       setCount(result.toNumber());
     }
@@ -48,8 +45,8 @@ const Mint = ({ account }) => {
     }
     if (DBcontract) {
       try {
-        let Price = totalNumber.toFixed(1);
-
+        totalNumber = totalNumber - 0.0006;
+        let Price = totalNumber.toFixed(6);
         console.log(number, Price); // CHECK BEFORE SEND
 
         const options = { value: ethers.utils.parseEther(Price) };
