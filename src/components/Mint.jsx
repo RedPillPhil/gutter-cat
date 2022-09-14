@@ -15,7 +15,7 @@ const Mint = ({ account }) => {
 
   // GET TOTAL COUNT
   async function getTokenCount() {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const provider = new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/22dc00a515804b3fb98cff185e0a3f32")
     const contract = new ethers.Contract(ContactAddress, ABI, provider);
     const result = await contract.tokenCounter();
     setCount(result.toNumber());
@@ -36,11 +36,12 @@ const Mint = ({ account }) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = await provider.getSigner();
       const contract = new ethers.Contract(ContactAddress, ABI, signer);
-      const gas = 100000;
+      const gas = 250000;
 
       let Price = totalNumber.toFixed(3);
       const options = { value: ethers.utils.parseEther(Price), gasLimit: gas };
-      await contract.createCollectible(number, options);
+      let x = await contract.createCollectible(number, options);
+      console.log(x)
 
       setTimeout(getTokenCount, 5000);
       toast.success("Successfully Collected!");
