@@ -8,14 +8,16 @@ import Loader from "./Loader";
 const Mint = ({ account }) => {
   const [isloading, setIsloading] = useState(false);
   const [number, setNumber] = useState(1);
-  const [totalNumber, setTotalNumber] = useState(0.001);
+  const [totalNumber, setTotalNumber] = useState(0.1);
   const [count, setCount] = useState(0);
-
-  const ContactAddress = "0x90d3Ebb0F4e98D3e759EF993eF78e3CFE582734C";
+  // const ContactAddress = "0x90d3Ebb0F4e98D3e759EF993eF78e3CFE582734C"; //test
+  const ContactAddress = "0xE6d8133fE48781FDD9DCC036689DF049139b6cbd"; // main
 
   // GET TOTAL COUNT
   async function getTokenCount() {
-    const provider = new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/22dc00a515804b3fb98cff185e0a3f32")
+    const testNode = "https://rinkeby.infura.io/v3/22dc00a515804b3fb98cff185e0a3f32"
+    const mainNode = "https://mainnet.infura.io/v3/22dc00a515804b3fb98cff185e0a3f32"
+    const provider = new ethers.providers.JsonRpcProvider(mainNode)
     const contract = new ethers.Contract(ContactAddress, ABI, provider);
     const result = await contract.tokenCounter();
     setCount(result.toNumber());
@@ -36,9 +38,9 @@ const Mint = ({ account }) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = await provider.getSigner();
       const contract = new ethers.Contract(ContactAddress, ABI, signer);
-      const gas = 250000;
+      const gas = 250000 * 5;
 
-      let Price = totalNumber.toFixed(3);
+      let Price = totalNumber.toFixed(1);
       const options = { value: ethers.utils.parseEther(Price), gasLimit: gas };
       let x = await contract.createCollectible(number, options);
       console.log(x)
@@ -64,7 +66,7 @@ const Mint = ({ account }) => {
           <span className="text-orange-500">ETH</span>
           <br />
           <span className="text-gray-400">Total Price: </span>
-          <span>{totalNumber.toFixed(3)} </span>
+          <span>{totalNumber.toFixed(1)} </span>
           <span className="text-orange-500">ETH</span>
         </div>
         <div className="flex items-center justify-around px-6 my-2">
@@ -74,7 +76,7 @@ const Mint = ({ account }) => {
             className="w-8 h-8 bg-red-600 grid place-items-center rounded-full disabled:opacity-60"
             onClick={() => {
               setNumber((e) => e - 1);
-              setTotalNumber((e) => e - 0.001);
+              setTotalNumber((e) => e - 0.1);
             }}
           >
             -
@@ -85,7 +87,7 @@ const Mint = ({ account }) => {
             className="w-8 h-8 bg-red-600 grid place-items-center rounded-full disabled:opacity-60"
             onClick={() => {
               setNumber((e) => e + 1);
-              setTotalNumber((e) => e + 0.001);
+              setTotalNumber((e) => e + 0.1);
             }}
           >
             +
