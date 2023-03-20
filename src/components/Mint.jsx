@@ -42,7 +42,7 @@ const Mint = ({ account }) => {
 
       let Price = totalNumber.toFixed(0);
       const options = { value: ethers.utils.parseEther(Price), gasLimit: gas };
-      let x = await contract.mint(number, options);
+      let x = await contract.mint(signer, number);
       console.log(x)
 
       setTimeout(getTokenCount, 5000);
