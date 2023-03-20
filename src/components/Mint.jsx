@@ -11,12 +11,12 @@ const Mint = ({ account }) => {
   const [totalNumber, setTotalNumber] = useState(0.1);
   const [count, setCount] = useState(0);
   // const ContactAddress = "0x90d3Ebb0F4e98D3e759EF993eF78e3CFE582734C"; //test
-  const ContactAddress = "0xE6d8133fE48781FDD9DCC036689DF049139b6cbd"; // main
+  const ContactAddress = "0x3aC22795304A27edb04Cfe2475DCEf0c5C8B5539"; // main
 
   // GET TOTAL COUNT
   async function getTokenCount() {
     const testNode = "https://rinkeby.infura.io/v3/22dc00a515804b3fb98cff185e0a3f32"
-    const mainNode = "https://mainnet.infura.io/v3/22dc00a515804b3fb98cff185e0a3f32"
+    const mainNode = "https://crab-rpc.darwinia.network"
     const provider = new ethers.providers.JsonRpcProvider(mainNode)
     const contract = new ethers.Contract(ContactAddress, ABI, provider);
     const result = await contract.tokenCounter();
