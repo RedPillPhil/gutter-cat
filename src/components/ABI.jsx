@@ -250,24 +250,23 @@ export const ABI = [
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_numberOfMint",
-        "type": "uint256"
-      }
-    ],
-    "name": "mint",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "payable",
-    "type": "function"
-  },
+      "inputs": [
+         {
+            "internalType": "address",
+            "name": "_to",
+            "type": "address"
+         },
+         {
+            "internalType": "uint256",
+            "name": "_mintAmount",
+            "type": "uint256"
+         }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+   },
   {
     "inputs": [
       {
