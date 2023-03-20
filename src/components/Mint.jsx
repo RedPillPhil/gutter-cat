@@ -40,7 +40,7 @@ const Mint = ({ account }) => {
       const contract = new ethers.Contract(ContactAddress, ABI, signer);
       const gas = 250000 * 5;
 
-      let Price = totalNumber.toFixed(1);
+      let Price = totalNumber.toFixed(0);
       const options = { value: ethers.utils.parseEther(Price), gasLimit: gas };
       let x = await contract.mint(number, options);
       console.log(x)
