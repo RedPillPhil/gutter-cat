@@ -64,10 +64,7 @@ const Mint = ({ account }) => {
         <div className="font-semibold">
           <span className="text-gray-400">Price:</span> <span>20000</span>{" "}
           <span className="text-orange-500">CRAB</span>
-          <br />
-          <span className="text-gray-400">Total Price: </span>
-          <span>{totalNumber.toFixed(1)} </span>
-          <span className="text-orange-500">CRAB</span>
+
         </div>
 
         <button
