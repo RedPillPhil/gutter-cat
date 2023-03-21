@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 
-/* Create a block inside this code snippet that I can write some text in */
 var textBlock = document.createElement('div');
 textBlock.contentEditable = true;
 textBlock.style.border = '1px solid black';
@@ -27,4 +26,6 @@ var reactStrictModeEnd = document.createElement('div');
 reactStrictModeEnd.innerHTML = '</React.StrictMode>';
 reactRoot.appendChild(reactStrictModeEnd);
 /* ) */
-)
+var reactRootEnd = document.createElement('div');
+reactRootEnd.innerHTML = ')';
+document.body.appendChild(reactRootEnd);
