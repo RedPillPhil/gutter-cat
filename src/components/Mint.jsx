@@ -8,7 +8,7 @@ import Loader from "./Loader";
 const Mint = ({ account }) => {
   const [isloading, setIsloading] = useState(false);
   const [number, setNumber] = useState(1);
-  const [totalNumber, setTotalNumber] = useState(0.1);
+  const [totalNumber, setTotalNumber] = useState(20000);
   const [count, setCount] = useState(0);
   // const ContactAddress = "0x90d3Ebb0F4e98D3e759EF993eF78e3CFE582734C"; //test
   const ContactAddress = "0x3aC22795304A27edb04Cfe2475DCEf0c5C8B5539"; // main
