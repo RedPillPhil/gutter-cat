@@ -62,7 +62,7 @@ const Mint = ({ account }) => {
       </h1>
       <div className="bg-black/70 rounded-xl backdrop-blur-xl flex flex-col gap-6 px-6 py-10 text-xl">
         <div className="font-semibold">
-          <span className="text-gray-400">Price:</span> <span>0.1</span>{" "}
+          <span className="text-gray-400">Price:</span> <span>20000</span>{" "}
           <span className="text-orange-500">CRAB</span>
           <br />
           <span className="text-gray-400">Total Price: </span>
