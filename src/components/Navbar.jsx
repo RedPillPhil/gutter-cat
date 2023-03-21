@@ -28,7 +28,7 @@ const Navbar = ({ account, setAccount }) => {
     <div className="w-full max-w-[1200px] xl:mt-4 fixed z-20">
       <ToastContainer position="top-center" theme="colored" />
       <div className="flex justify-between p-4">
-        <h2 className="font-bold text-2xl text-white">Ringo da goodest boi</h2>
+        <h2 className="font-bold text-2xl text-white">Ringo Bingo</h2>
         <div className="flex gap-4">
           <button
             onClick={connectWallet}
