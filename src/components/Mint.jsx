@@ -66,7 +66,7 @@ const Mint = ({ account }) => {
     carefully curated from over many diferent traits, Some Ringo's are incredibly rare, and have traits that others could only dream of. 
     Our vision is to create an amazing project for the Darwinia ecosystem that will shed light, joy, love, creativity and ultimately help the ecosystem grow! To the moon Ringo!</span>
     <div>      </div>
-    <p><div>      </div></p>
+    <p><div>  <br>    </div></p>
     <span> </span>
     <span className="text-gray-400">Price:</span> <span>20000</span>{" "}
           <span className="text-orange-500">CRAB</span>
