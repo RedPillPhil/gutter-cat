@@ -62,6 +62,9 @@ const Mint = ({ account }) => {
       </h1>
       <div className="bg-black/70 rounded-xl backdrop-blur-xl flex flex-col gap-6 px-6 py-10 text-xl">
         <div className="font-semibold">
+        <span className="text-gray-400">BoredApes are a collection of 5,555 burning hot NFTs living in the core of the blockchain. Each individual BoredApes is 
+    carefully curated from over 150 traits, along with some incredibly rare 1/1s that have traits that can't be found from any other BoredApes. 
+    Our vision is to create an amazing project that will shed light, joy, love, and creativity! Burn on, BoredApes!</span>
           <span className="text-gray-400">Price:</span> <span>20000</span>{" "}
           <span className="text-orange-500">CRAB</span>
 
