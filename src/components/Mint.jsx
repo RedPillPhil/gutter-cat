@@ -67,6 +67,7 @@ const Mint = ({ account }) => {
     Our vision is to create an amazing project for the Darwinia ecosystem that will shed light, joy, love, creativity and ultimately help the ecosystem grow! To the moon Ringo!</span>
 <div></div>   
 <span className="text-gray-400">___________________ </span>
+<div></div>
     <span className="text-gray-400">Price:</span> <span>20000</span>{" "}
           <span className="text-orange-500">CRAB</span>
 
