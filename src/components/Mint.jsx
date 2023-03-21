@@ -63,11 +63,11 @@ const Mint = ({ account }) => {
       <div className="bg-black/70 rounded-xl backdrop-blur-xl flex flex-col gap-6 px-6 py-10 text-xl">
         <div className="font-semibold">
           <span className="text-gray-400">Price:</span> <span>0.1</span>{" "}
-          <span className="text-orange-500">ETH</span>
+          <span className="text-orange-500">CRAB</span>
           <br />
           <span className="text-gray-400">Total Price: </span>
           <span>{totalNumber.toFixed(1)} </span>
-          <span className="text-orange-500">ETH</span>
+          <span className="text-orange-500">CRAB</span>
         </div>
         <div className="flex items-center justify-around px-6 my-2">
           Select Quantity :
@@ -76,7 +76,7 @@ const Mint = ({ account }) => {
             className="w-8 h-8 bg-red-600 grid place-items-center rounded-full disabled:opacity-60"
             onClick={() => {
               setNumber((e) => e - 1);
-              setTotalNumber((e) => e - 0.1);
+              setTotalNumber((e) => e - 20000);
             }}
           >
             -
@@ -101,7 +101,7 @@ const Mint = ({ account }) => {
         >
           {isloading ? <Loader /> : "MINT"}
         </button>
-        <p className="text-sm font-semibold">{count} out of 10,000 minted</p>
+        <p className="text-sm font-semibold">{count} out of 1,000 minted</p>
       </div>
     </div>
   );
