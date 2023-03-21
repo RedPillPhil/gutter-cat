@@ -19,7 +19,7 @@ const Mint = ({ account }) => {
     const mainNode = "https://crab-rpc.darwinia.network"
     const provider = new ethers.providers.JsonRpcProvider(mainNode)
     const contract = new ethers.Contract(ContactAddress, ABI, provider);
-    const result = await contract.tokenCounter();
+    const result = await contract.totalSupply();
     setCount(result.toNumber());
   }
   getTokenCount();
