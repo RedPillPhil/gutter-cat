@@ -69,30 +69,7 @@ const Mint = ({ account }) => {
           <span>{totalNumber.toFixed(1)} </span>
           <span className="text-orange-500">CRAB</span>
         </div>
-        <div className="flex items-center justify-around px-6 my-2">
-          Select Quantity :
-          <button
-            disabled={number == 1 ? true : false}
-            className="w-8 h-8 bg-red-600 grid place-items-center rounded-full disabled:opacity-60"
-            onClick={() => {
-              setNumber((e) => e - 1);
-              setTotalNumber((e) => e - 20000);
-            }}
-          >
-            -
-          </button>
-          <span className="font-bold text-lg"> {number} </span>
-          <button
-            disabled={number == 5 ? true : false}
-            className="w-8 h-8 bg-red-600 grid place-items-center rounded-full disabled:opacity-60"
-            onClick={() => {
-              setNumber((e) => e + 1);
-              setTotalNumber((e) => e + 0.1);
-            }}
-          >
-            +
-          </button>
-        </div>
+
         <button
           onClick={setCollectibleBulk}
           type="button"
